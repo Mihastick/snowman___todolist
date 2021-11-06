@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+        }
+
+        .cont {
+            padding: 1em;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+
+        .list {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+            width: 100%;
+            border: 2px solid black;
+            border-radius: 20px;
+            min-height: 10em;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #inp {
+            width: 20em;
+            height: 2em;
+            border-radius: 20px;
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            text-align: center;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            border: 2px solid black;
+        }
+
+        .input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .blockList {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        li {
+            margin-right: 2em;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            height: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            list-style: none;
+            background: rgb(66, 66, 155);
+            width: 100%;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cont">
+        <div>
+            <label for="inp" class="input">
+                Введите новую задачу:
+                <input type="text" id="inp" name="inp">
+            </label>
+        </div>
+        <div class="blockList">
+            <ul class="list" id="nz">
+
+            </ul>
+            <ul class="list">
+
+            </ul>
+        </div>
+    </div>
+    <script>
+
+        let inp = document.getElementById('inp');
+        let nz = document.getElementById('nz');
+        let zones = document.querySelectorAll('.list');
+
+        let currentItem;
+
+        zones.forEach(zone => {
+            zone.addEventListener('dragenter', dragenter);
+            zone.addEventListener('dragleave', dragleave);
+            zone.addEventListener('dragover', dragover);
+            zone.addEventListener('drop', dragdrop);
+        });
+
+        function createLi() {
+            let li = document.createElement('li');
+            li.textContent = inp.value;
+            li.draggable = "true";
+            li.style.color = 'white';
+            li.addEventListener('dragstart', dragstart);
+            li.addEventListener('dragend', dragend);
+            return li;
+        }
+
+
+        function dragstart(e) {
+            setTimeout(() => {
+                e.target.style.opacity = "0.01";
+            }, 0);
+            currentItem = e.target;
+        }
+
+        function dragend(e) {
+            // e.target.classList.remove('drag-start');
+            e.target.style.opacity = "1";
+        }
+
+        function dragenter(e) {
+            e.preventDefault();
+            // e.target.classList.add('drop-zone')
+        }
+        function dragover(e) {
+            e.preventDefault();
+        }
+        function dragleave(e) {
+            e.preventDefault();
+            // e.target.classList.remove('drop-zone');
+        }
+        function dragdrop(e) {
+            e.preventDefault();
+            // e.target.classList.remove('drop-zone');
+            e.target.append(currentItem);
+        }
+
+        inp.addEventListener('keydown', function (e) {
+
+            if (e.code == 'Enter') {
+                nz.prepend(createLi());
+            }
+        });
+
+    </script>
+</body>
+
+</html>

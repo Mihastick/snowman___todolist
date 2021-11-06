@@ -1,0 +1,115 @@
+body {
+  background: #1282eb;
+  margin: 0;
+  padding: 0;
+}
+
+[draggable] {
+  cursor: move;
+}
+
+img{
+  margin-left: 150px;
+  z-index:5;
+}
+#snowman{
+  position: absolute;
+  left: 100px; 
+  top: 100px;
+}
+#mouth03{
+  position: absolute;
+  left: 400px; 
+  top: 150px;
+}
+
+#neck01{
+  position: absolute;
+  left: 365px; 
+  top: 210px;
+}
+#neck03{
+  position: absolute;
+  left: 370px; 
+  top: 355px;
+}
+#neck04{
+  position: absolute;
+  left: 400px; 
+  top: 500px;
+}
+#neck05{
+  position: absolute;
+  left: 500px; 
+  top: 530px;
+}
+#hand_left01{
+  position: absolute;
+  left: 517px; 
+  top: 141px;
+}
+#hand_right01{
+  position: absolute;
+  left: 772px; 
+  top: 150px;
+}
+#hand_left02{
+  position: absolute;
+  left: 871px; 
+  top: 523px;
+}
+#hand_right02{
+  position: absolute;
+  left: 818px; 
+  top: 574px;
+}
+#eyes03{
+  position: absolute;
+  left: 661px; 
+  top: 138px;
+}
+#eyes01{
+  position: absolute;
+  left: 669px; 
+  top: 300px;
+}
+#eyes02{
+  position: absolute;
+  left: 663px; 
+  top: 208px;
+}
+#eyes05{
+  position: absolute;
+  left: 638px; 
+  top: 370px;
+}
+#nose01{
+  position: absolute;
+  left: 532px; 
+  top: 320px;
+}
+#nose02{
+  position: absolute;
+  left: 529px; 
+  top: 230px;
+}
+#head03{
+  position: absolute;
+  left: 515px; 
+  top: 417px;
+}
+#head02{
+  position: absolute;
+  left: 790px; 
+  top: 399px;
+}
+#head06{
+  position: absolute;
+  left: 650px; 
+  top: 470px;
+}
+#head05{
+  position: absolute;
+  left: 803px; 
+  top: 234px;
+}
